@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
+//Mensagem aquando clica no botão ao pé da página
         fab.setOnClickListener { view ->
             Snackbar.make(view, getString(R.string.aviso_snackbar), Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
