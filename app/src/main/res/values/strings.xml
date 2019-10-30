@@ -2,5 +2,5 @@
     <string name="app_name">Ágata</string>
     <string name="action_settings">Configuração</string>
     <string name="boas_vindas">Olá. Boas vindas ao aplicativo Ágata.</string>
-    <string name="aviso_snackbar">Aviso qualquer ao pé da tela.</string>
+    <string name="aviso_snackbar">Aviso qualquer ao pé da tela, para testar</string>
 </resources>
