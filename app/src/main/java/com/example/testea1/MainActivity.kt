@@ -1,18 +1,62 @@
 package com.example.testea1
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
+import android.view.Gravity
+import android.graphics.Color.parseColor
+
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.widget.*
+import android.widget.LinearLayout
+
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.widget.TextView
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         setSupportActionBar(toolbar)
+
+        var linearLayoutVertical : LinearLayout =  findViewById(R.id.layoutHolder)
+        val params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
+        ) //Layout params for Button
+        layoutHolder.removeAllViews()//Remove all views from Layout before placing new view
+        //Array for holding refrences
+        val buttonHolder: Array<Button?>
+
+        buttonHolder = arrayOfNulls<Button>(20)//Setting size of Button Array
+        Pesquisa.get_listaPesquisa()
+        //Loop for items
+        for (i in 0..19) {
+            val button = Button(this)//Creating Button
+            button.setId(i)//Setting Id for using in future
+            button.setText(Pesquisa.lista.get(i).name)//Setting text
+
+            button.setPadding(5, 5, 5, 5)//paading
+            button.setLayoutParams(params)//Setting Layout Params
+            button.setTextColor(Color.parseColor("#000000"))//Text Colort
+            button.setGravity(Gravity.CENTER)//Gravity of Text
+
+            buttonHolder[i] = button//Setting button reference in array for future use
+            layoutHolder.orientation = LinearLayout.VERTICAL//Setting Layout orientation
+            layoutHolder.addView(button)//Finally adding view
+        }
+
 //Mensagem aquando clica no botão ao pé da página
         fab.setOnClickListener { view ->
             Snackbar.make(view, getString(R.string.aviso_snackbar), Snackbar.LENGTH_LONG)

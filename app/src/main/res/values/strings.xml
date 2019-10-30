@@ -3,4 +3,5 @@
     <string name="action_settings">Configuração</string>
     <string name="boas_vindas">Olá. Boas vindas ao aplicativo Ágata.</string>
     <string name="aviso_snackbar">Aviso qualquer ao pé da tela, para testar.</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>
