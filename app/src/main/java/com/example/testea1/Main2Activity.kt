@@ -11,6 +11,9 @@ class Main2Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
+        // Get the Intent that started this activity and extract the string
+        val message = this.intent.getStringExtra("EXTRA_MESSAGE")
+
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
