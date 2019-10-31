@@ -17,6 +17,7 @@ data class Pesquisa(val id: Int, val name: String, val texto_busca: String) {
         /**
          * Baixa a lista de pesquisas do web service
          * TODO Acesso ao web service lista de pesquisas
+         *  Por enquanto retorna uma lista falsa
          */
         fun downloadListaPesquisa(usuario: String) {
             Pesquisa.add(1, "tipologia 1", "lagosta")
