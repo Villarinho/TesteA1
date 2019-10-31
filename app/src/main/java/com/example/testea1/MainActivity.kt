@@ -1,29 +1,18 @@
 package com.example.testea1
 
 import android.content.Intent
-import android.graphics.Color
+import android.graphics.Color.parseColor
 import android.os.Bundle
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Button
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
-import android.view.Gravity
-import android.graphics.Color.parseColor
-
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.widget.*
-import android.widget.LinearLayout
-
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.widget.TextView
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.view.View
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -60,10 +49,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         val intent = Intent(this, Main2Activity::class.java).apply {
-            putExtra("EXTRA_MESSAGE", "Teste")
+            putExtra("EXTRA_MESSAGE", "teste")
         }
         startActivity(intent)
-
     }
 
     fun listarPesquisas() {
@@ -76,7 +64,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val buttonHolder: Array<Button?>
 
         buttonHolder = arrayOfNulls<Button>(20)//Setting size of Button Array
-        Pesquisa.get_listaPesquisa()
+        Pesquisa.downloadListaPesquisa("FRANCISCOCV")// TODO("Pegar usuário real")
+
         //Loop for items
         for (i in 0..19) {
             val button = Button(this)//Creating Button
@@ -86,10 +75,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             button.setLayoutParams(params)//Setting Layout Params
             button.setTextColor(parseColor("#000000"))//Text Colort
             button.setGravity(Gravity.CENTER)//Gravity of Text
-            button.setOnClickListener(this)
+            button.setOnClickListener { view ->
+                val intent = Intent(this, Main2Activity::class.java).apply {
+                    putExtra(
+                        "EXTRA_MESSAGE",
+                        if (view is Button) Pesquisa.lista.get(i).name else "nâo"
+                    )
+                }
+                startActivity(intent)
+            }
+
             buttonHolder[i] = button//Setting button reference in array for future use
             layoutHolder.orientation = LinearLayout.VERTICAL//Setting Layout orientation
             layoutHolder.addView(button)//Finally adding view
+
         }
     }
 }
+

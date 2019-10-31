@@ -1,9 +1,8 @@
 package com.example.testea1
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main2.*
 
 class Main2Activity : AppCompatActivity() {
@@ -13,6 +12,7 @@ class Main2Activity : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
         // Get the Intent that started this activity and extract the string
         val message = this.intent.getStringExtra("EXTRA_MESSAGE")
+        title = message
 
         setSupportActionBar(toolbar)
 

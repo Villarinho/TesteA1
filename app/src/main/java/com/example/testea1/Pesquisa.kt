@@ -10,7 +10,12 @@ data class Pesquisa(val name: String, val texto_busca: String) {
             lista.add(pesquisa)
             return pesquisa
         }
-        fun get_listaPesquisa() {
+
+        /**
+         * Baixa a lista de pesquisas do web service
+         * TODO Acesso ao web service lista de pesquisas
+         */
+        fun downloadListaPesquisa(usuario: String) {
             Pesquisa.add("tipologia 1","lagosta")
             Pesquisa.add("tipologia 2","camarão")
             Pesquisa.add("tipologia 3","polvo")
