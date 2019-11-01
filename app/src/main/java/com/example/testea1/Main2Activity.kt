@@ -15,7 +15,7 @@ class Main2Activity : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
         // Get the Intent that started this activity and extract the string
         val message = this.intent.getStringExtra("EXTRA_MESSAGE")
-        title = message
+        this.title = message
 
         setSupportActionBar(toolbar)
 
@@ -25,19 +25,21 @@ class Main2Activity : AppCompatActivity() {
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        EnviaRotulo.webView = findViewById(R.id.webView)
-
-        val webView: WebView
-        webView = findViewById(R.id.webView);
-        // displaying text in WebView
+        //TODO Pega nova anotação do web service e exibe o HTML
+        //  Por enquanto pega um arquivo HTML nos assets
+        val webView: WebView = findViewById(R.id.webView);
         webView.loadUrl("file:///android_asset/sample.html")
 
-        var button4: Button = findViewById(R.id.button4)
-        var button5: Button = findViewById(R.id.button5)
-        var button6: Button = findViewById(R.id.button6)
-        button4.setOnClickListener(EnviaRotulo)
-        button5.setOnClickListener(EnviaRotulo)
-        button6.setOnClickListener(EnviaRotulo)
+        var enviaRotulo: EnviaRotulo = EnviaRotulo(findViewById(R.id.webView))
+        var botaoSim: Button = findViewById(R.id.button4)
+        var botaoDuvida: Button = findViewById(R.id.button6)
+        var botaoNao: Button = findViewById(R.id.button5)
+        botaoSim.tag = 1
+        botaoDuvida.tag = 0
+        botaoNao.tag = -1
+        botaoSim.setOnClickListener(enviaRotulo)
+        botaoDuvida.setOnClickListener(enviaRotulo)
+        botaoNao.setOnClickListener(enviaRotulo)
     }
 
 

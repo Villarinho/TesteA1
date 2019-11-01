@@ -61,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="bottom|left"
+                android:tag="S"
                 android:text="Sim" />
 
             <Button

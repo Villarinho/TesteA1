@@ -47,11 +47,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun listarPesquisas() {
-        var linearLayoutVertical: LinearLayout = findViewById(R.id.layoutHolder)
         val params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
         ) //Layout params for Button
-        layoutHolder.removeAllViews()//Remove all views from Layout before placing new view
 
         Pesquisa.downloadListaPesquisa("FRANCISCOCV")// TODO("Pegar usuário real")
 
@@ -76,8 +74,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-            layoutHolder.orientation = LinearLayout.VERTICAL//Setting Layout orientation
-            layoutHolder.addView(button)//Finally adding view
+            this.layoutHolder.addView(button)//Finally adding view
         }
     }
 }

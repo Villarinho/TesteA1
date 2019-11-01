@@ -24,6 +24,14 @@
         tools:srcCompat="@mipmap/agate_750pix" />
 
 
+    <TextView
+        android:id="@+id/tableHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Pesquisas"
+        android:textSize="18sp" />
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -33,14 +41,6 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/verticalLayout"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Pesquisas"
-                android:textSize="18sp" />
 
             <!-- Layout for placing custom layout  -->
             <LinearLayout
