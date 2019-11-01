@@ -52,11 +52,8 @@ class MainActivity : AppCompatActivity() {
             LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
         ) //Layout params for Button
         layoutHolder.removeAllViews()//Remove all views from Layout before placing new view
-        //Array for holding refrences
-        val buttonHolder: Array<Button?>
 
         Pesquisa.downloadListaPesquisa("FRANCISCOCV")// TODO("Pegar usuário real")
-        //      buttonHolder = arrayOfNulls(Pesquisa.getSize())//Setting size of Button Array
 
         //Loop for items
         for (i in Pesquisa.lista) {
@@ -79,11 +76,8 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-            //          buttonHolder[i] = button//Setting button reference in array for future use
             layoutHolder.orientation = LinearLayout.VERTICAL//Setting Layout orientation
             layoutHolder.addView(button)//Finally adding view
-
         }
     }
 }
-
