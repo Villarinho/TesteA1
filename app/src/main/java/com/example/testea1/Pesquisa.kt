@@ -21,13 +21,16 @@ data class Pesquisa(val id: Int, val name: String, val texto_busca: String) {
          */
         fun downloadListaPesquisa(usuario: String) {
             Pesquisa.add(1, "lagosta", "lagosta")
-            Pesquisa.add(2, "ágata", "ágata")
-            Pesquisa.add(3, "topázio 3", "topázio")
-            Pesquisa.add(4, "turmalina 4", "turmalina")
-            Pesquisa.add(5, "siri 4", "siri")
+            Pesquisa.add(2, "camarão", "camarão")
+            Pesquisa.add(3, "siri", "siri")
+            Pesquisa.add(4, "ágata", "ágata")
+            Pesquisa.add(5, "topázio", "topázio")
+            Pesquisa.add(6, "turmalina", "turmalina")
+            Pesquisa.add(7, "certidão", "certidão")
+            Pesquisa.add(8, "minha tipologia", "palavra")
 
-            for (i: Int in 6..18) {
-                Pesquisa.add(i, "tipologia  $i ", "siri $i")
+            for (i: Int in 9..12) {
+                Pesquisa.add(i, "tipologia  $i", "siri $i")
             }
         }
 

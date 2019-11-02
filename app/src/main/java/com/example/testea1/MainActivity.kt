@@ -1,7 +1,7 @@
 package com.example.testea1
 
 import android.content.Intent
-import android.graphics.Color.parseColor
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.Menu
@@ -58,10 +58,10 @@ class MainActivity : AppCompatActivity() {
             val button = Button(this)//Creating Button
             button.setId(i.id)//Setting Id for using in future
             button.setText(i.name)//Setting text
-            button.setPadding(5, 5, 5, 5)//paading
+            button.setPadding(5, 5, 5, 5)
             button.setLayoutParams(params)//Setting Layout Params
-            button.setTextColor(parseColor("#000000"))//Text Colort
-            button.setGravity(Gravity.CENTER)//Gravity of Text
+            button.setTextColor(Color.parseColor("#0276FD"))
+            button.setGravity(Gravity.START)//Gravity of Text alinhado à esquerda
 
             button.setOnClickListener { view ->
                 val intent = Intent(this, Main2Activity::class.java).apply {

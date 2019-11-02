@@ -28,7 +28,7 @@ class Main2Activity : AppCompatActivity() {
         //TODO Pega nova anotação do web service e exibe o HTML
         //  Por enquanto pega um arquivo HTML nos assets
         val webView: WebView = findViewById(R.id.webView);
-        webView.loadUrl("file:///android_asset/sample.html")
+        webView.loadUrl("file:///android_asset/texto3.html")
 
         var enviaRotulo: EnviaRotulo = EnviaRotulo(findViewById(R.id.webView))
         var botaoSim: Button = findViewById(R.id.button4)
