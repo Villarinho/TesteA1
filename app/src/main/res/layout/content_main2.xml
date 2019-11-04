@@ -18,8 +18,8 @@
             style="@style/Widget.AppCompat.RatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
             android:layout_margin="5dp"
-            android:layout_weight="5"
             android:max="3"
             android:numStars="3"
             android:rating="2" />
@@ -32,7 +32,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:layout_weight="90">
+            android:layout_weight="1">
 
         </WebView>
 
@@ -42,26 +42,26 @@
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:text="É o que você procura?"
-            android:textSize="18sp" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="10"
             android:gravity="bottom"
             android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="É o que você procura?"
+                android:textSize="18sp" />
 
             <Button
                 android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_below="@id/textView4"
                 android:gravity="center"
                 android:text="Não" />
 
@@ -69,7 +69,8 @@
                 android:id="@+id/button6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_below="@id/textView4"
+                android:layout_toRightOf="@id/button5"
                 android:gravity="center"
                 android:text="Não tenho certeza" />
 
@@ -77,12 +78,13 @@
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_below="@id/textView4"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/button6"
                 android:gravity="center"
-                android:tag="S"
                 android:text="Sim" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 
