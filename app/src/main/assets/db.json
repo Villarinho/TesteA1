@@ -1,0 +1,41 @@
+{
+  "resposta": {
+    "_links": {
+      "comentario": {
+        "href": "/agata/api/tipologias/186/usuarios/FRANCISCOCV/anotacoes/1/comentario",
+        "method": "PUT"
+      },
+      "classificacao": {
+        "href": "/agata/api/tipologias/186/usuarios/FRANCISCOCV/anotacoes/1/classificacao",
+        "method": "PUT"
+      },
+      "self": {
+        "href": "/agata/api/tipologias/186/usuarios/FRANCISCOCV/anotacoes/1",
+        "method": "GET"
+      },
+      "prev": {
+        "href": "/agata/api/tipologias/186/usuarios/FRANCISCOCV/anotacoes/0",
+        "method": "GET"
+      },
+      "next": {
+        "href": "/agata/api/tipologias/186/usuarios/FRANCISCOCV/anotacoes/proxima-anotacao",
+        "method": "POST"
+      },
+      "link-documento": {
+        "href": "/agata/api/tipologias/186/usuarios/FRANCISCOCV/anotacoes/1/link-documento",
+        "method": "POST"
+      }
+    },
+    "comentario": null,
+    "html": "<style>mark {font-weight: 500; color:#111; background-color: #FF5} b {font-weight: 700; color:#F00;};</style><span id=\"agataSpan\" style=\"height:20em; width:100%; display: block; overflow: auto;\"> compatível, reversível e resistente às ações dos raios ultravioleta; <br/>Amenização  das  juntas  da  colagem  a  partir  de  reintegração  com  material <br/>compatível  com  o  antigo,  reversível  e  resistente  aos  raios  ultravioletas,  com <br/>07<br/> <br/>posterior polimento com lixas d’água finas, numeração a partir de 1000 mesh; <br/><mark>Aplicação de material consolidante com <b>teste</b> prévio.</mark> <br/>E13  Janela  de  quatro  folhas  de  abrir,  com  caixilho  e  alisar,  em  madeira <br/>emassada  e  pintada  na  cor  bege.  Inferiores  em  venezianas  e  superiores  em <br/>vidro bisotado e jateado. Peitoril em mármore. <br/>Recomendações: <br/>Madeira: Avaliação das peças que necessitam de substituição total ou <br/>parcial; Reconstituição</span><script>document.getElementById(\"agataSpan\").getElementsByTagName(\"b\")[0].scrollIntoView({block:\"center\"});</script>",
+    "classificacao": null,
+    "progresso": 0,
+    "url": "http://srv-apex-dgi:8080/edital/925387/03000092019/0003.ANEXO_I-A_-_Memorial_descritivo_e_Especifica..o_T.cnica_-_Palacete_Bolonha.pdf",
+    "classes": {
+      "0": "Padrão não encontrado",
+      "1": "Padrão encontrado",
+      "-1": "Não tenho certeza"
+    },
+    "nivel_progresso": 0
+  }
+}
