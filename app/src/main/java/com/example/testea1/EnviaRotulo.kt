@@ -1,5 +1,6 @@
 package com.example.testea1
 
+import android.util.Log
 import android.view.View
 import android.webkit.WebView
 import com.google.android.material.snackbar.Snackbar

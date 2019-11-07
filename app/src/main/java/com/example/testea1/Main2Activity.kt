@@ -1,11 +1,18 @@
 package com.example.testea1
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.content_main2.*
+import org.json.JSONObject
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
 class Main2Activity : AppCompatActivity() {
 
@@ -27,8 +34,14 @@ class Main2Activity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         //TODO Pega nova anotação do web service e exibe o HTML
-        //  Por enquanto pega um arquivo HTML nos assets
-        webView.loadUrl("file:///android_asset/texto3.html")
+        //  Por enquanto pega um arquivo json nos assets
+        //webView.loadUrl("file:///android_asset/texto3.html")
+        val file_name = "db.json"
+        val json_string = application.assets.open(file_name).bufferedReader().use{
+            it.readText()}
+        val html = JSONObject(JSONObject(json_string).getString("resposta")).getString("html")
+        webView.loadData(html, "text/html", null);
+        Log.d("JSON",html)
 
         var enviaRotulo: EnviaRotulo = EnviaRotulo(webView)
 
