@@ -1,2 +1,3 @@
 # TesteA1
-Para aprender Android
+Para aprender Android.
+Aplicativo para o projeto Ágata
