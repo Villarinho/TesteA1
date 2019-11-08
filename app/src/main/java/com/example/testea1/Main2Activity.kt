@@ -18,6 +18,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 
+const val TAG = "AGATA"
 class Main2Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,21 +31,15 @@ class Main2Activity : AppCompatActivity() {
         this.title = message
 
         setSupportActionBar(toolbar)
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Obrigado", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        //TODO Pega nova anotação do web service e exibe o HTML
-        //  Por enquanto pega um arquivo json nos assets
-        //webView.loadUrl("file:///android_asset/texto3.html")
   //      val file_name = "db.json"
   //      val json_string :String = application.assets.open(file_name).bufferedReader().use{
   //          it.readText()}
   //      val html = JSONObject(JSONObject(json_string).getString("resposta")).getString("html")
 
+        //TODO Conectar ao web service
+        // Por enquanto acessa um servidor fake
         val url ="https://my-json-server.typicode.com/Villarinho/fakeServer/db"
         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue(this)
@@ -52,14 +47,13 @@ class Main2Activity : AppCompatActivity() {
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             Response.Listener<String> { response ->
-                // Display the first 500 characters of the response string.
-                Log.i("JSON" ,response.substring(0, 400))
+                // Log the first characters of the response string.
+                Log.i(TAG ,response.substring(0, 400))
                 val html = JSONObject(JSONObject(response).getString("resposta")).getString("html")
                 webView.loadData(html, "text/html", null)
-                Log.i("JSON",html)
-
+                Log.i(TAG,html)
             },
-            Response.ErrorListener { Log.i("VOL", "That didn't work!" )})
+            Response.ErrorListener { Log.i(TAG, "That didn't work!" )})
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest)

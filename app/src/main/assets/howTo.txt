@@ -1,0 +1,7 @@
+Neste arquivo coloco lições aprendidas que não foram aproveitadas no código
+
+Como ler um arquivo no assets para uma string:
+(funciona só dentro de uma Activity pois a classe precisa ter um atributo application:Application)
+        val file_name = "db.json"
+        val json_string :String = application.assets.open(file_name).bufferedReader().use{
+            it.readText()}

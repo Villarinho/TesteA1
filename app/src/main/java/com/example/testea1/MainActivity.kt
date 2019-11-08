@@ -1,5 +1,6 @@
 package com.example.testea1
 
+import android.app.Application
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -41,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
+            //TODO: implementar menu caso necessário
+            //  Por enquanto tem o item de menu "Configurações", que não faz nada
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
@@ -67,14 +70,12 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, Main2Activity::class.java).apply {
                     putExtra(
                         "EXTRA_MESSAGE",
-                        //TODO Aqui eu não consegui passar pelas propriedades do button
-                        if (view is Button) i.name else "nâo"
+                        if (view is Button) i.name else "não sou um botão"
                     )
                 }
                 startActivity(intent)
             }
-
-            this.layoutHolder.addView(button)//Finally adding view
+            this.layoutHolder.addView(button)//Adiciona a view ao layout
         }
     }
 }
