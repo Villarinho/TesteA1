@@ -18,7 +18,7 @@ class ExampleUnitTest {
 
     @Test
     fun testeCiclo() {
-        var ciclo: Int = 1
+        var ciclo = 1
         for (i in 1..10) {
             ciclo = if (ciclo == 3) 1 else (ciclo + 1)
             println(ciclo)
@@ -41,5 +41,6 @@ class ExampleUnitTest {
 
     }
 
+    
 
  }

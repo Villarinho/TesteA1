@@ -13,6 +13,10 @@ import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 
 class Main2Activity : AppCompatActivity() {
 
@@ -36,19 +40,39 @@ class Main2Activity : AppCompatActivity() {
         //TODO Pega nova anotação do web service e exibe o HTML
         //  Por enquanto pega um arquivo json nos assets
         //webView.loadUrl("file:///android_asset/texto3.html")
-        val file_name = "db.json"
-        val json_string = application.assets.open(file_name).bufferedReader().use{
-            it.readText()}
-        val html = JSONObject(JSONObject(json_string).getString("resposta")).getString("html")
-        webView.loadData(html, "text/html", null);
-        Log.d("JSON",html)
+  //      val file_name = "db.json"
+  //      val json_string :String = application.assets.open(file_name).bufferedReader().use{
+  //          it.readText()}
+  //      val html = JSONObject(JSONObject(json_string).getString("resposta")).getString("html")
 
-        var enviaRotulo: EnviaRotulo = EnviaRotulo(webView)
+        val url ="https://my-json-server.typicode.com/Villarinho/fakeServer/db"
+        // Instantiate the RequestQueue.
+        val queue = Volley.newRequestQueue(this)
+        // Request a string response from the provided URL.
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                // Display the first 500 characters of the response string.
+                Log.i("JSON" ,response.substring(0, 400))
+                val html = JSONObject(JSONObject(response).getString("resposta")).getString("html")
+                webView.loadData(html, "text/html", null)
+                Log.i("JSON",html)
+
+            },
+            Response.ErrorListener { Log.i("VOL", "That didn't work!" )})
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest)
+
+
+
+
+        val enviaRotulo: EnviaRotulo = EnviaRotulo(webView)
 
         // Propriedades dos botões
-        var botaoSim: Button = button4
-        var botaoDuvida: Button = button6
-        var botaoNao: Button = button5
+        val botaoSim: Button = button4
+        val botaoDuvida: Button = button6
+        val botaoNao: Button = button5
         botaoSim.tag = 1
         botaoDuvida.tag = 0
         botaoNao.tag = -1
