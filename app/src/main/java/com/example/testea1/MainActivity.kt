@@ -1,6 +1,5 @@
 package com.example.testea1
 
-import android.app.Application
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -52,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     fun listarPesquisas() {
         val params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
-        ) //Layout params for Button
+        )
 
         Pesquisa.downloadListaPesquisa("FRANCISCOCV")// TODO("Pegar usuário real")
 

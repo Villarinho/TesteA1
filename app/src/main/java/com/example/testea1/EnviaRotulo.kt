@@ -1,6 +1,5 @@
 package com.example.testea1
 
-import android.util.Log
 import android.view.View
 import android.webkit.WebView
 import com.google.android.material.snackbar.Snackbar
@@ -25,7 +24,7 @@ class EnviaRotulo(webView: WebView) : View.OnClickListener {
             Por enquanto circula entre os arquivos texto_.html nos assets
         */
         ciclo = if (ciclo == 3) 1 else (ciclo + 1)
-        wv.loadUrl("file:///android_asset/texto${ciclo}.html");
+        wv.loadUrl("file:///android_asset/texto${ciclo}.html")
 
     }
 }

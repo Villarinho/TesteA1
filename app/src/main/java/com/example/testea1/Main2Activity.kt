@@ -4,21 +4,15 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_main2.*
-import kotlinx.android.synthetic.main.content_main2.*
-import org.json.JSONObject
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.android.synthetic.main.content_main2.*
+import org.json.JSONObject
 
-const val TAG = "AGATA"
+const val TAG_LOG = "AGATA"
 class Main2Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,14 +27,9 @@ class Main2Activity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-  //      val file_name = "db.json"
-  //      val json_string :String = application.assets.open(file_name).bufferedReader().use{
-  //          it.readText()}
-  //      val html = JSONObject(JSONObject(json_string).getString("resposta")).getString("html")
-
         //TODO Conectar ao web service
         // Por enquanto acessa um servidor fake
-        val url ="https://my-json-server.typicode.com/Villarinho/fakeServer/db"
+        val url ="https://my-json-server.typicode.com/Villarinho/fakeServer/resposta"
         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue(this)
         // Request a string response from the provided URL.
@@ -48,19 +37,16 @@ class Main2Activity : AppCompatActivity() {
             Request.Method.GET, url,
             Response.Listener<String> { response ->
                 // Log the first characters of the response string.
-                Log.i(TAG ,response.substring(0, 400))
-                val html = JSONObject(JSONObject(response).getString("resposta")).getString("html")
+                Log.i(TAG_LOG ,response.substring(0, 400))
+            val html = JSONObject(response).getString("html")
                 webView.loadData(html, "text/html", null)
-                Log.i(TAG,html)
+                Log.i(TAG_LOG,html)
             },
-            Response.ErrorListener { Log.i(TAG, "That didn't work!" )})
+            Response.ErrorListener { Log.i(TAG_LOG, "That didn't work!" )})
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
-
-
-
-
+        
         val enviaRotulo: EnviaRotulo = EnviaRotulo(webView)
 
         // Propriedades dos botões
